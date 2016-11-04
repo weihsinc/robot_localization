@@ -1,0 +1,9 @@
+<launch>
+  <!-- args="x y z qx qy qz qw frame_id child_frame_id" -->
+  <node pkg="tf2_ros" type="static_transform_publisher" name="base_link_to_odometer_br" args="0 0 0 0 0 0 1 base_link odometer"/>
+
+  <node pkg="tf2_ros" type="static_transform_publisher" name="base_link_to_imu_br" args="-0.137 -0.045 0.097 0 0 0.7071 0.7071 base_link imu"/>
+
+  <node pkg="tf2_ros" type="static_transform_publisher" name="base_link_to_gps_br" args="-0.675 -1.54 0.08 0 0 0 1 base_link garmin_gps"/>
+
+</launch>
