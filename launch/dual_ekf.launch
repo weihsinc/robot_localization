@@ -14,4 +14,5 @@
     <remap from="odometry/filtered" to="odometry/filtered_map"/>
   </node>
 
+  <node pkg="rviz" type="rviz" name="rviz_dual_ekf" args="-d $(find robot_localization)/config/dual_ekf.rviz"/>
 </launch>

@@ -16,7 +16,7 @@ ekf_odom:
   odom0: vehicle_state/velocity
   odom0_config: [false, false, false,
                  false, false, false,
-                 true,  true,  true,
+                 false, true,  false,
                  false, false, false,
                  false, false, false]
   odom0_queue_size: 10
@@ -40,7 +40,7 @@ ekf_odom:
 
   process_noise_covariance: [10,   0,    0,    0,    0,    0,    0,     0,     0,    0,    0,    0,    0,    0,    0,
                              0,    10,   0,    0,    0,    0,    0,     0,     0,    0,    0,    0,    0,    0,    0,
-                             0,    0,    20,   0,    0,    0,    0,     0,     0,    0,    0,    0,    0,    0,    0,
+                             0,    0,    10,   0,    0,    0,    0,     0,     0,    0,    0,    0,    0,    0,    0,
                              0,    0,    0,    0.03, 0,    0,    0,     0,     0,    0,    0,    0,    0,    0,    0,
                              0,    0,    0,    0,    0.03, 0,    0,     0,     0,    0,    0,    0,    0,    0,    0,
                              0,    0,    0,    0,    0,    0.06, 0,     0,     0,    0,    0,    0,    0,    0,    0,
@@ -86,7 +86,7 @@ ekf_map:
   odom0: vehicle_state/velocity_filtered
   odom0_config: [false, false, false,
                  false, false, false,
-                 true,  true,  true,
+                 false, true,  false,
                  false, false, false,
                  false, false, false]
   odom0_queue_size: 10
