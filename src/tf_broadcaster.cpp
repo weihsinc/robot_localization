@@ -9,7 +9,7 @@ bool gtcb_first_call = true;
 bool gpscb_first_call = true;
 geometry_msgs::TransformStamped tf_worldToGTinit, tf_worldToGTodom, tf_worldToGT, tf_worldToGPSinit;
 
-void groundTruthOdometryCallback(const nav_msgs::Odometry::ConstPtr& msg) {
+void groundTruthOdometryCallback(const nav_msgs::Odometry::ConstPtr &msg) {
  	
  	if (gtcb_first_call) {
  		tf_worldToGTodom.header.stamp = msg->header.stamp;
@@ -43,7 +43,7 @@ void groundTruthOdometryCallback(const nav_msgs::Odometry::ConstPtr& msg) {
  	tf_worldToGT.transform.rotation = msg->pose.pose.orientation;
 }
 
-void gpsOdometryCallback(const nav_msgs::Odometry::ConstPtr& msg) {
+void gpsOdometryCallback(const nav_msgs::Odometry::ConstPtr &msg) {
  	
  	if (gpscb_first_call) {
  		tf_worldToGPSinit.header.stamp = msg->header.stamp;

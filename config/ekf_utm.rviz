@@ -102,16 +102,6 @@ Visualization Manager:
       Value: true
     - Angle Tolerance: 0.1
       Class: rviz/Odometry
-      Color: 255; 25; 0
-      Enabled: true
-      Keep: 0
-      Length: 5
-      Name: Odometry
-      Position Tolerance: 0.1
-      Topic: /odometry/filtered
-      Value: true
-    - Angle Tolerance: 0.1
-      Class: rviz/Odometry
       Color: 0; 0; 255
       Enabled: true
       Keep: 0
@@ -119,6 +109,16 @@ Visualization Manager:
       Name: Odometry
       Position Tolerance: 0.1
       Topic: /odom
+      Value: true
+    - Angle Tolerance: 0.1
+      Class: rviz/Odometry
+      Color: 255; 25; 0
+      Enabled: true
+      Keep: 0
+      Length: 5
+      Name: Odometry
+      Position Tolerance: 0.1
+      Topic: /odometry/filtered
       Value: true
   Enabled: true
   Global Options:
