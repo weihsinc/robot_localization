@@ -1,6 +1,6 @@
 frequency: 100
 sensor_timeout: 0.1
-two_d_mode: true
+two_d_mode: false
 transform_time_offset: 0.0
 print_diagnostics: true
 debug: false

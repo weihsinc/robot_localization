@@ -2,13 +2,10 @@
   
   <include file="$(find robot_localization)/launch/static_tf_publisher.launch"/>
 
-  <!-- <include file="$(find robot_localization)/launch/tf_publisher.launch"/> -->
-
   <node pkg="robot_localization" type="ekf_localization_node" name="ekf_odom" clear_params="true">
     <rosparam command="load" file="$(find robot_localization)/params/ekf_odom.yaml"/>
-    <!--  Output topic remapping -->
-    <!-- <remap from="odometry/filtered" to=""/> -->   
   </node>
 
   <node pkg="rviz" type="rviz" name="rviz_ekf_odom" args="-d $(find robot_localization)/config/ekf_odom.rviz"/>
+
 </launch>

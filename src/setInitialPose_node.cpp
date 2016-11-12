@@ -11,7 +11,7 @@ void gpsOdometryCallback(const nav_msgs::Odometry::ConstPtr &msg) {
 	geometry_msgs::PoseWithCovarianceStamped init_pose;
 	init_pose.header.stamp = msg->header.stamp;
 	init_pose.header.frame_id = msg->header.frame_id;
-	init_pose.pose = msg->pose;
+	init_pose.pose = msg->pose; // copy the entire poseWithCovariance part in the odometry message
 	pub.publish(init_pose);
 	first_call = false;
 }

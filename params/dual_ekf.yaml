@@ -1,5 +1,3 @@
-# For parameter descriptions, please refer to the template parameter files for each node.
-
 ekf_odom:
   frequency: 100
   sensor_timeout: 0.1
@@ -16,7 +14,7 @@ ekf_odom:
   odom0: vehicle_state/velocity
   odom0_config: [false, false, false,
                  false, false, false,
-                 false, true,  false,
+                 true,  true,  true,
                  false, false, false,
                  false, false, false]
   odom0_queue_size: 10
@@ -26,21 +24,21 @@ ekf_odom:
 
   imu0: imu/data
   imu0_config: [false, false, false,
-                false, false, false,
+                true,  true,  false,
                 false, false, false,
                 true,  true,  true,
                 false, false, false]
+  imu0_queue_size: 10
   imu0_nodelay: false
   imu0_differential: false
-  imu0_relative: false
-  imu0_queue_size: 10
+  imu0_relative: true
   imu0_remove_gravitational_acceleration: true
 
   use_control: false
 
-  process_noise_covariance: [10,   0,    0,    0,    0,    0,    0,     0,     0,    0,    0,    0,    0,    0,    0,
-                             0,    10,   0,    0,    0,    0,    0,     0,     0,    0,    0,    0,    0,    0,    0,
-                             0,    0,    10,   0,    0,    0,    0,     0,     0,    0,    0,    0,    0,    0,    0,
+  process_noise_covariance: [0.05, 0,    0,    0,    0,    0,    0,     0,     0,    0,    0,    0,    0,    0,    0,
+                             0,    0.05, 0,    0,    0,    0,    0,     0,     0,    0,    0,    0,    0,    0,    0,
+                             0,    0,    0.06, 0,    0,    0,    0,     0,     0,    0,    0,    0,    0,    0,    0,
                              0,    0,    0,    0.03, 0,    0,    0,     0,     0,    0,    0,    0,    0,    0,    0,
                              0,    0,    0,    0,    0.03, 0,    0,     0,     0,    0,    0,    0,    0,    0,    0,
                              0,    0,    0,    0,    0,    0.06, 0,     0,     0,    0,    0,    0,    0,    0,    0,
@@ -77,6 +75,8 @@ ekf_map:
   transform_time_offset: 0.0
   print_diagnostics: true
   debug: false
+  smooth_lagged_data: true
+  history_length: 1.0
 
   map_frame: UTM
   odom_frame: odom
@@ -86,13 +86,25 @@ ekf_map:
   odom0: vehicle_state/velocity_filtered
   odom0_config: [false, false, false,
                  false, false, false,
-                 false, true,  false,
+                 true,  true,  true,
                  false, false, false,
                  false, false, false]
   odom0_queue_size: 10
   odom0_nodelay: false
   odom0_differential: false
   odom0_relative: false
+
+  imu0: imu/data
+  imu0_config: [false, false, false,
+                true,  true,  false,
+                false, false, false,
+                true,  true,  true,
+                false, false, false]
+  imu0_queue_size: 10
+  imu0_nodelay: false
+  imu0_differential: false
+  imu0_relative: false
+  imu0_remove_gravitational_acceleration: true
 
   odom1: garmin_gps/odom
   odom1_config: [true,  true,  true,
@@ -105,26 +117,14 @@ ekf_map:
   odom1_differential: false
   odom1_relative: false
 
-  imu0: imu/data
-  imu0_config: [false, false, false,
-                true,  true,  false,
-                false, false, false,
-                true,  true,  true,
-                false, false, false]
-  imu0_nodelay: false
-  imu0_differential: false
-  imu0_relative: false
-  imu0_queue_size: 10
-  imu0_remove_gravitational_acceleration: true
-
   use_control: false
 
-  process_noise_covariance: [10,   0,    0,    0,    0,    0,    0,     0,     0,    0,    0,    0,    0,    0,    0,
-                             0,    10,   0,    0,    0,    0,    0,     0,     0,    0,    0,    0,    0,    0,    0,
-                             0,    0,    10,   0,    0,    0,    0,     0,     0,    0,    0,    0,    0,    0,    0,
-                             0,    0,    0,    0.03, 0,    0,    0,     0,     0,    0,    0,    0,    0,    0,    0,
-                             0,    0,    0,    0,    0.03, 0,    0,     0,     0,    0,    0,    0,    0,    0,    0,
-                             0,    0,    0,    0,    0,    0.001,0,     0,     0,    0,    0,    0,    0,    0,    0,
+  process_noise_covariance: [20,   0,    0,    0,    0,    0,    0,     0,     0,    0,    0,    0,    0,    0,    0,
+                             0,    20,   0,    0,    0,    0,    0,     0,     0,    0,    0,    0,    0,    0,    0,
+                             0,    0,    50,   0,    0,    0,    0,     0,     0,    0,    0,    0,    0,    0,    0,
+                             0,    0,    0,    3,    0,    0,    0,     0,     0,    0,    0,    0,    0,    0,    0,
+                             0,    0,    0,    0,    3,    0,    0,     0,     0,    0,    0,    0,    0,    0,    0,
+                             0,    0,    0,    0,    0,    0.6,  0,     0,     0,    0,    0,    0,    0,    0,    0,
                              0,    0,    0,    0,    0,    0,    0.025, 0,     0,    0,    0,    0,    0,    0,    0,
                              0,    0,    0,    0,    0,    0,    0,     0.025, 0,    0,    0,    0,    0,    0,    0,
                              0,    0,    0,    0,    0,    0,    0,     0,     0.04, 0,    0,    0,    0,    0,    0,

@@ -1,5 +1,4 @@
 #include <ros/ros.h>
-#include <std_msgs/Float64.h>
 #include <nav_msgs/Odometry.h>
 #include <tf2_ros/static_transform_broadcaster.h>
 #include <tf2_ros/transform_broadcaster.h>
@@ -67,17 +66,17 @@ int main(int argc, char** argv) {
 	ros::Rate r(100); // publish transforms in 100Hz
 	ros::Subscriber gt_sub = nh.subscribe("/odom", 1, groundTruthOdometryCallback);
 	ros::Subscriber gps_sub = nh.subscribe("/garmin_gps/odom", 1, gpsOdometryCallback);
-	tf2_ros::StaticTransformBroadcaster stbr;
-	tf2_ros::TransformBroadcaster tbr;
+	tf2_ros::StaticTransformBroadcaster stfbr;
+	tf2_ros::TransformBroadcaster tfbr;
 
 	while(nh.ok()) {
 		if (!gtcb_first_call) {
-			stbr.sendTransform(tf_worldToGTinit);
-			stbr.sendTransform(tf_worldToGTodom);
-			tbr.sendTransform(tf_worldToGT);
+			stfbr.sendTransform(tf_worldToGTinit);
+			stfbr.sendTransform(tf_worldToGTodom);
+			tfbr.sendTransform(tf_worldToGT);
 		}
 		if (!gpscb_first_call) {
-			stbr.sendTransform(tf_worldToGPSinit);	
+			stfbr.sendTransform(tf_worldToGPSinit);	
 		}
 		ros::spinOnce();
 		r.sleep();
