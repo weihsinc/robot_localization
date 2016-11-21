@@ -1,6 +1,0 @@
-<launch>
-
-<!-- Launch rqt_plot with perspective file -->
-<node pkg="rqt_gui" type="rqt_gui" name="ekf_debug" args="--perspective-file $(find robot_localization)/config/ekf_debug_rqt.perspective"/>
-
-</launch>

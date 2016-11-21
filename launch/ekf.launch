@@ -12,8 +12,4 @@
     <!-- <remap from="odometry/filtered" to=""/> --> 
   </node>
 
-  <node pkg="rviz" type="rviz" name="rviz_ekf_utm" args="-d $(find robot_localization)/config/ekf_utm.rviz"/>
-
-  <include file="$(find robot_localization)/launch/ekf_debug_rqt.launch"/>
-
 </launch>
