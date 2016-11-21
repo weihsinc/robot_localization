@@ -1,0 +1,7 @@
+<launch>
+
+<include file="$(find robot_localization)/launch/rpy_publisher.launch"/>
+
+<include file="$(find robot_localization)/launch/rqt.launch"/>
+
+</launch>
