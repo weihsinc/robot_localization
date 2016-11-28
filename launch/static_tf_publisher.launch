@@ -6,4 +6,7 @@
 
   <node pkg="tf2_ros" type="static_transform_publisher" name="base_link_to_gps_br" args="-0.675 -1.54 0.08 0 0 0 1 base_link garmin_gps"/>
 
+  <!-- DEBUG -->
+  <!-- <node pkg="rviz" type="rviz" name="rviz_static_tf" args="-d $(find robot_localization)/config/static_tf_viewer.rviz"/> -->
+
 </launch>
