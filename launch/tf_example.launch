@@ -15,6 +15,6 @@
 
 
 <!-- DEBUG -->
-<node pkg="rviz" type="rviz" name="rviz_ekf_utm" args="-d $(find robot_localization)/config/tf_example.rviz"/>
+<node pkg="rviz" type="rviz" name="rviz" args="-d $(find robot_localization)/config/tf_example.rviz"/>
 
 </launch>
