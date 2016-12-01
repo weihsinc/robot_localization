@@ -1,0 +1,14 @@
+<!-- -*- mode: XML -*- -->
+<launch>
+  <!-- Launch the sensors used by the EKF-->
+
+  <!-- CAN Gateway -->
+  <include file="$(find can_gateway)/launch/can_gateway.launch"/>
+
+  <!-- Xsens IMU -->
+  <include file="$(find xsens_driver)/xsens_driver.launch"/>
+
+  <!-- Garmin GPS -->
+  <include file="$(find gps_common)/launch/garmin_gps.launch" />
+        
+</launch>
