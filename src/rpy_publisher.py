@@ -69,7 +69,7 @@ def adjust_angle(angle):
 def trace():
     rospy.init_node('rpy_publisher_node', anonymous=True)
     rospy.Subscriber("/odometry/filtered", Odometry, filter_cb) 
-    rospy.Subscriber("/odom", Odometry, novatel_cb)
+    rospy.Subscriber("/span/pose", Odometry, novatel_cb)
     rospy.Subscriber("/imu/data", Imu, xsens_cb)
     rospy.spin()
 
