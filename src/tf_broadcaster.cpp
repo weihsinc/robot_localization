@@ -64,7 +64,7 @@ int main(int argc, char** argv) {
 	ros::init(argc, argv, "tf_broadcaster");
 	ros::NodeHandle nh;
 	ros::Rate r(100); // publish transforms in 100Hz
-	ros::Subscriber gt_sub = nh.subscribe("/odom", 1, groundTruthOdometryCallback);
+	ros::Subscriber gt_sub = nh.subscribe("/span/pose", 1, groundTruthOdometryCallback);
 	ros::Subscriber gps_sub = nh.subscribe("/garmin_gps/odom", 1, gpsOdometryCallback);
 	tf2_ros::StaticTransformBroadcaster stfbr;
 	tf2_ros::TransformBroadcaster tfbr;

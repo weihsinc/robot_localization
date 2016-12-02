@@ -1,0 +1,20 @@
+<!-- -*- mode: XML -*- -->
+<launch>
+
+<!-- Data logger -->
+<node pkg="rosbag"
+      type="record"
+      name="logger"
+      output="screen"	
+      args="-o /home/yamaha/Data/20161201/rl_ekf_test --split --size=2000
+            /odometry/filtered
+            /span/pose
+            /span/status
+            /garmin_gps/fix
+            /garmin_gps/odom
+            /imu/data
+            /vehicle_state/velocity
+            /rosout
+            /rosout_agg"/>
+
+</launch>

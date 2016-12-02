@@ -58,46 +58,13 @@ Visualization Manager:
       Frame Timeout: 15
       Frames:
         All Enabled: false
-        UTM:
-          Value: true
-        base_link:
-          Value: true
-        garmin_gps:
-          Value: false
-        gps_init_ENU:
-          Value: true
-        gt_init_ENU:
-          Value: false
-        gt_odom:
-          Value: false
-        imu:
-          Value: false
-        novatel:
-          Value: true
-        odometer:
-          Value: false
       Marker Scale: 50
       Name: TF
       Show Arrows: false
       Show Axes: true
       Show Names: true
       Tree:
-        UTM:
-          base_link:
-            garmin_gps:
-              {}
-            imu:
-              {}
-            odometer:
-              {}
-          gps_init_ENU:
-            {}
-          gt_init_ENU:
-            {}
-          gt_odom:
-            {}
-          novatel:
-            {}
+        {}
       Update Interval: 0
       Value: true
     - Angle Tolerance: 0.1
@@ -108,7 +75,7 @@ Visualization Manager:
       Length: 5
       Name: Odometry
       Position Tolerance: 0.1
-      Topic: /odom
+      Topic: /span/pose
       Value: true
     - Angle Tolerance: 0.1
       Class: rviz/Odometry

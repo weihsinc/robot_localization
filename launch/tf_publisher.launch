@@ -1,5 +1,9 @@
 <launch>
 
-  <node pkg="robot_localization" type="tf_broadcaster" name="tf_broadcaster" />	
+  <node pkg="robot_localization" type="tf_broadcaster" name="tf_broadcaster">
+  	<!-- remap subscribed topic name -->
+	<!-- <remap from="/span/pose" to="/"/> -->
+	<!-- <remap from="/garmin_gps/odom" to="/"/> -->
+  </node>
 
 </launch>
