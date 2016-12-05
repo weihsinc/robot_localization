@@ -1,7 +1,7 @@
 <launch>
-
+<!-- launch rpy_publisher -->
 <include file="$(find robot_localization)/launch/rpy_publisher.launch"/>
-
+<!-- launch rqt_gui console -->
 <include file="$(find robot_localization)/launch/rqt.launch"/>
 
 </launch>
