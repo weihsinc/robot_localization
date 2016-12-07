@@ -4,7 +4,7 @@
 
   <include file="$(find robot_localization)/launch/tf_publisher.launch"/>
   
-  <node pkg="robot_localization" type="setInitialPose_node" name="set_initial_pose"/>
+  <!-- <node pkg="robot_localization" type="setInitialPose_node" name="set_initial_pose"/> -->
 
   <rosparam command="load" file="$(find robot_localization)/params/dual_ekf.yaml" />
 
@@ -16,6 +16,8 @@
     <remap from="odometry/filtered" to="odometry/filtered_map"/>
   </node>
 
-  <node pkg="rviz" type="rviz" name="rviz_dual_ekf" args="-d $(find robot_localization)/config/dual_ekf.rviz"/>
+  <include file="$(find robot_localization)/launch/rviz.launch"/>
+
+  <!-- <include file="$(find robot_localization)/launch/rqt.launch"/> -->
 
 </launch>

@@ -24,7 +24,7 @@ ekf_odom:
 
   imu0: imu/data
   imu0_config: [false, false, false,
-                true,  true,  false,
+                true,  true,  true,
                 false, false, false,
                 true,  true,  true,
                 false, false, false]
@@ -32,7 +32,6 @@ ekf_odom:
   imu0_nodelay: false
   imu0_differential: false
   imu0_relative: true
-  imu0_remove_gravitational_acceleration: true
 
   use_control: false
 
@@ -83,7 +82,7 @@ ekf_map:
   base_link_frame: base_link
   world_frame: UTM
 
-  odom0: vehicle_state/velocity_filtered
+  odom0: vehicle_state/velocity
   odom0_config: [false, false, false,
                  false, false, false,
                  true,  true,  true,
@@ -104,7 +103,6 @@ ekf_map:
   imu0_nodelay: false
   imu0_differential: false
   imu0_relative: false
-  imu0_remove_gravitational_acceleration: true
 
   odom1: garmin_gps/odom
   odom1_config: [true,  true,  true,
@@ -119,9 +117,9 @@ ekf_map:
 
   use_control: false
 
-  process_noise_covariance: [20,   0,    0,    0,    0,    0,    0,     0,     0,    0,    0,    0,    0,    0,    0,
-                             0,    20,   0,    0,    0,    0,    0,     0,     0,    0,    0,    0,    0,    0,    0,
-                             0,    0,    50,   0,    0,    0,    0,     0,     0,    0,    0,    0,    0,    0,    0,
+  process_noise_covariance: [10,   0,    0,    0,    0,    0,    0,     0,     0,    0,    0,    0,    0,    0,    0,
+                             0,    10,   0,    0,    0,    0,    0,     0,     0,    0,    0,    0,    0,    0,    0,
+                             0,    0,    20,   0,    0,    0,    0,     0,     0,    0,    0,    0,    0,    0,    0,
                              0,    0,    0,    3,    0,    0,    0,     0,     0,    0,    0,    0,    0,    0,    0,
                              0,    0,    0,    0,    3,    0,    0,     0,     0,    0,    0,    0,    0,    0,    0,
                              0,    0,    0,    0,    0,    0.6,  0,     0,     0,    0,    0,    0,    0,    0,    0,

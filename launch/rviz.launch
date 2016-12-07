@@ -1,5 +1,7 @@
 <launch>
   
-<node pkg="rviz" type="rviz" name="rviz_ekf_utm" args="-d $(find robot_localization)/config/ekf_utm.rviz"/>
+<node pkg="rviz" type="rviz" name="rviz_odom" args="-d $(find robot_localization)/config/ekf_odom.rviz"/>
+
+<node pkg="rviz" type="rviz" name="rviz_utm" args="-d $(find robot_localization)/config/ekf_utm.rviz"/>
 
 </launch>
