@@ -3,7 +3,7 @@
  <node pkg="robot_localization" type="rpy_publisher.py" name="rpy_publisher">
  	<!--  Subscribed topic remapping -->
  	<!-- Filter -->
-    <!-- <remap from="/odometry/filtered" to="/" />  -->
+    <remap from="/odometry/filtered" to="/odom" /> 
     <!-- Ground Truth -->
     <!-- <remap from="/span/pose" to="/" /> -->
     <!-- IMU -->

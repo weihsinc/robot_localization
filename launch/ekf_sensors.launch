@@ -6,7 +6,7 @@
   <include file="$(find can_gateway)/launch/can_gateway.launch"/>
 
   <!-- Xsens IMU -->
-  <include file="$(find xsens_driver)/xsens_driver.launch"/>
+  <include file="$(find xsens_driver)/launch/xsens_driver.launch"/>
 
   <!-- Garmin GPS -->
   <include file="$(find gps_common)/launch/garmin_gps.launch" />

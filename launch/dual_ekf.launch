@@ -13,10 +13,10 @@
   </node>
 
   <node pkg="robot_localization" type="ekf_localization_node" name="ekf_map" clear_params="true">
-    <remap from="odometry/filtered" to="odometry/filtered_map"/>
+    <remap from="odometry/filtered" to="odom"/>
   </node>
 
-  <include file="$(find robot_localization)/launch/rviz.launch"/>
+  <!-- <include file="$(find robot_localization)/launch/rviz.launch"/> -->
 
   <!-- <include file="$(find robot_localization)/launch/rqt.launch"/> -->
 
