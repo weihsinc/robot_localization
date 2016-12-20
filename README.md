@@ -57,4 +57,4 @@ The **ekf_map** node publishes
 
 ## **Parameters** ##
 
-All the parameters for the dual EKF are set up in the **params/dual_ekf.yaml**, please refer to the template file **params/ekf_template.yaml** or the online documentation http://docs.ros.org/indigo/api/robot_localization/html/ for the definitions and usage on parameters.
+All the parameters for the dual EKF are set up in the **params/dual_ekf.yaml**, please refer to the template file **params/ekf_template.yaml** or see the online documentation http://docs.ros.org/indigo/api/robot_localization/html/ for the definitions and usage on parameters.
