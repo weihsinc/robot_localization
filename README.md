@@ -58,3 +58,17 @@ The **ekf_map** node publishes
 ## **Parameters** ##
 
 All the parameters for the dual EKF are set up in the **params/dual_ekf.yaml**, please refer to the template file **params/ekf_template.yaml** or see the online documentation http://docs.ros.org/indigo/api/robot_localization/html/ for the definitions and usage on parameters.
+
+## **Debugging** ##
+
+To debug the EKF pose on live test, use the following command
+~~~~
+roslaunch robot_localization debug.launch
+~~~~
+   * This launches the rpy_publisher and the rqt_gui console with rqt_plot plugins for visualizing the time series of live message data.
+
+## **Data Logging** ##
+To log a ros bag for EKF, use the launch file **launch/ekf_log.launch**. The launch file has already included the default topics needed, specify the path and file prefix in the "args" tag before recording a bag and use the following command 
+~~~~
+roslaunch robot_localization debug.launch
+~~~~
