@@ -16,8 +16,8 @@ Launch EKF nodes:
 roslaunch robot_localization dual_ekf.launch
 ~~~~
    * This launches two EKF nodes and tf publishers.
-   * /ekf_odom: EKF node for local pose estimation. (*odom frame*)
-   * /ekf_map: EKF node for global pose estimation. (*map frame*)
+   * /ekf_odom: EKF node for local pose estimation.
+   * /ekf_map: EKF node for global pose estimation.
 
 ## **Visualization** ##
 ~~~~
