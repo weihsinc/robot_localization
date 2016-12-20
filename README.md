@@ -70,5 +70,5 @@ roslaunch robot_localization debug.launch
 ## **Data Logging** ##
 To log a ros bag for EKF, use the launch file **launch/ekf_log.launch**. The launch file has already included the default topics needed, specify the path and file prefix in the "args" tag before recording a bag and use the following command 
 ~~~~
-roslaunch robot_localization debug.launch
+roslaunch robot_localization ekf_log.launch
 ~~~~
