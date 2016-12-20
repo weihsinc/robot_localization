@@ -28,7 +28,7 @@ roslaunch robot_localization rviz.launch
    * ekf_utm.rviz: RVIZ for global pose estimation. (grid reference frame: *gps_init_ENU*)
 
 ## **Initialization** ##
-**NOTE: At launching, the global pose estimation is undetermined until the vehicle start driving for some distance.**
+**NOTE: At launching, the global pose estimation is undetermined until the vehicle starts driving for some distance.**
 
 ## **Subscription** ##
 
