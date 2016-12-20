@@ -12,7 +12,7 @@ Panels:
         - /Odometry1
         - /Odometry2
       Splitter Ratio: 0.533666
-    Tree Height: 359
+    Tree Height: 731
   - Class: rviz/Selection
     Name: Selection
   - Class: rviz/Tool Properties
@@ -58,13 +58,49 @@ Visualization Manager:
       Frame Timeout: 15
       Frames:
         All Enabled: false
+        UTM:
+          Value: false
+        base_link:
+          Value: true
+        garmin_gps:
+          Value: false
+        gps_init_ENU:
+          Value: false
+        gt_init_ENU:
+          Value: false
+        gt_odom:
+          Value: false
+        imu:
+          Value: false
+        novatel:
+          Value: false
+        odom:
+          Value: true
+        odometer:
+          Value: false
       Marker Scale: 50
       Name: TF
       Show Arrows: false
       Show Axes: true
       Show Names: true
       Tree:
-        {}
+        UTM:
+          gps_init_ENU:
+            {}
+          gt_init_ENU:
+            {}
+          gt_odom:
+            {}
+          novatel:
+            {}
+          odom:
+            base_link:
+              garmin_gps:
+                {}
+              imu:
+                {}
+              odometer:
+                {}
       Update Interval: 0
       Value: true
     - Angle Tolerance: 0.1
