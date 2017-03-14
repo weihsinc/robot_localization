@@ -6,6 +6,10 @@
 
   <node pkg="tf2_ros" type="static_transform_publisher" name="base_link_to_gps_br" args="-0.675 -1.54 0.08 0 0 0 1 base_link garmin_gps"/>
 
+ <!--  <node pkg="tf2_ros" type="static_transform_publisher" name="base_link_to_velodyne64_br" args="-0.017 -0.027 0.037 0, 0 0.7071, 0.7071 gps_frame velodyne64"/>
+
+  <node pkg="tf2_ros" type="static_transform_publisher" name="base_link_to_multisense_br" args="-0.140 0.282 -0.010 -0.7826 0 0 0.6225 gps_frame multisense/head_root"/> -->
+
   <!-- DEBUG -->
   <!-- <node pkg="rviz" type="rviz" name="rviz_static_tf" args="-d $(find robot_localization)/config/static_tf_viewer.rviz"/> -->
 

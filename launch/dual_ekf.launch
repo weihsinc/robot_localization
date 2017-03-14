@@ -14,7 +14,7 @@
     <remap from="odometry/filtered" to="odom"/>
   </node>
 
-  <include file="$(find robot_localization)/launch/rviz.launch"/>
+  <!-- <include file="$(find robot_localization)/launch/rviz.launch"/> -->
 
   <!-- <include file="$(find robot_localization)/launch/rqt.launch"/> -->
 
