@@ -48,12 +48,12 @@ The **ekf_map** node subscribes to
 The **ekf_odom** node publishes
 
    * */odometry/filtered_odom (nav_msgs/Odometry)*: Local pose estimation
-   * Transforms from **odom_frame** to **base_link_frame**.
+   * */tf (geometry_msgs/TransformStamped)*: Transforms from **odom_frame** to **base_link_frame**.
 
 The **ekf_map** node publishes
 
    * */odometry/filtered_map (nav_msgs/Odometry)*: Global pose estimation
-   * Transforms from **map_frame** to **odom_frame**.
+   * */tf (geometry_msgs/TransformStamped)*: Transforms from **map_frame** to **odom_frame**.
 
 ## **Parameters** ##
 
