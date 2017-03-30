@@ -1,14 +1,19 @@
 <launch>
   <!-- args="x y z qx qy qz qw frame_id child_frame_id" -->
+  <!-- Odometer (wheel encoder) -->
   <node pkg="tf2_ros" type="static_transform_publisher" name="base_link_to_odometer_br" args="0 0 0 0 0 0 1 base_link odometer"/>
 
+  <!-- Xsens IMU -->
   <node pkg="tf2_ros" type="static_transform_publisher" name="base_link_to_imu_br" args="-0.137 -0.045 0.097 0 0 0.7071 0.7071 base_link imu"/>
 
+  <!-- Garmin GPS -->
   <node pkg="tf2_ros" type="static_transform_publisher" name="base_link_to_gps_br" args="-0.675 -1.54 0.08 0 0 0 1 base_link garmin_gps"/>
 
- <!--  <node pkg="tf2_ros" type="static_transform_publisher" name="base_link_to_velodyne64_br" args="-0.017 -0.027 0.037 0, 0 0.7071, 0.7071 gps_frame velodyne64"/>
+  <!-- Velodyne 64 -->
+  <node pkg="tf2_ros" type="static_transform_publisher" name="base_link_to_velodyne64_br" args="-0.017 -0.027 0.037 0, 0 0.7071, 0.7071 base_link velodyne64"/>
 
-  <node pkg="tf2_ros" type="static_transform_publisher" name="base_link_to_multisense_br" args="-0.140 0.282 -0.010 -0.7826 0 0 0.6225 gps_frame multisense/head_root"/> -->
+  <!-- Multisense Left Camera -->
+  <node pkg="tf2_ros" type="static_transform_publisher" name="base_link_to_multisense_br" args="-0.140 0.282 -0.010 -0.7826 0 0 0.6225 base_link multisense/left_camera_optical_frame"/>
 
   <!-- DEBUG -->
   <!-- <node pkg="rviz" type="rviz" name="rviz_static_tf" args="-d $(find robot_localization)/config/static_tf_viewer.rviz"/> -->
