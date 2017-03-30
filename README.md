@@ -4,6 +4,13 @@ robot_localization is a package of nonlinear state estimation nodes. The package
 
 For detailed information please see documentation here: http://wiki.ros.org/robot_localization
 
+
+## **Installation** ##
+Requires "geographic-msgs". If not installed:
+~~~~
+sudo apt-get install ros-indigo-geographic-msgs
+~~~~
+
 ## **How to run it?** ##
 Launch sensor drivers:
 ~~~~
