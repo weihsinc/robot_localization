@@ -20,25 +20,27 @@ roslaunch robot_localization ekf_sensors.launch
 
 Launch dual EKF:
 ~~~~
-roslaunch robot_localization dual_ekf.launch
+roslaunch robot_localization dual_ekf.launch rviz_odom:=<true/false(default)> rviz_utm:=<true/false(default)>
 ~~~~
    * This launches two EKF nodes and tf publishers.
    * *ekf_odom*: EKF node for local pose estimation.
    * *ekf_map*: EKF node for global pose estimation.
+   * args: rviz_odom (ekf_odom.rviz); rviz_utm (ekf_utm.rviz).
 
 Launch local EKF:
 ~~~~
-roslaunch robot_localization ekf_odom.launch
+roslaunch robot_localization ekf_odom.launch rviz:=<true/false(default)>
 ~~~~
    * This launches local EKF localization node, *ekf_odom*.
+   * args: rviz (ekf_odom.rviz).
 
-## **Visualization** ##
+Visualization during operation:
 ~~~~
 roslaunch robot_localization rviz.launch
 ~~~~
    * This launches two RVIZ windows for visualizing 3D pose and odometry with respective configuration files.
-   * ekf_odom.rviz: RVIZ for local pose estimation. (grid reference frame: *odom*)
-   * ekf_utm.rviz: RVIZ for global pose estimation. (grid reference frame: *gps_init_ENU*)
+   * ekf_odom.rviz: RVIZ for local odometry. (grid reference frame: *odom*)
+   * ekf_utm.rviz: RVIZ for global odometry. (grid reference frame: *gps_init_ENU*)
 
 ## **Initialization** ##
 **WARNING: At launching, the global pose estimation is undetermined until the vehicle starts driving for some distance. For details about sensor fusion layout, please refer to the Google slide: [Local and Global Pose Estimation for Yamaha Viking](https://drive.google.com/open?id=1ZupPT3fVijkt8HYYW9_nPaK9ds9az5XWv38_J53h8Eo)**
