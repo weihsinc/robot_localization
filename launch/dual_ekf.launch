@@ -1,21 +1,30 @@
 <launch>
 
+  <!-- Choose RVIZ -->
+  <arg name="rviz_odom" default="false" />
+  <arg name="rviz_utm" default="false" />
+
+  <!-- Publish static transforms (base link to sensor links)-->
   <include file="$(find robot_localization)/launch/static_tf_publisher.launch"/>
 
+  <!-- Publish initial GPS transform (for local map frame setup) -->
   <include file="$(find robot_localization)/launch/tf_publisher.launch"/>
 
+  <!-- Parameters for dual EKF nodes -->
   <rosparam command="load" file="$(find robot_localization)/params/dual_ekf.yaml" />
 
+  <!-- Launch local EKF node (odom frame) -->
   <node pkg="robot_localization" type="ekf_localization_node" name="ekf_odom" clear_params="true">
     <remap from="odometry/filtered" to="odometry/filtered_odom"/>
   </node>
 
+  <!-- Launch Global EKF node (map frame) -->
   <node pkg="robot_localization" type="ekf_localization_node" name="ekf_map" clear_params="true">
     <remap from="odometry/filtered" to="odom"/>
   </node>
 
-  <!-- <include file="$(find robot_localization)/launch/rviz.launch"/> -->
-
-  <!-- <include file="$(find robot_localization)/launch/rqt.launch"/> -->
+  <!-- RVIZ-->
+  <node if="$(arg rviz_odom)" pkg="rviz" type="rviz" name="rviz_odom" args="-d $(find robot_localization)/config/ekf_odom.rviz"/>
+  <node if="$(arg rviz_utm)" pkg="rviz" type="rviz" name="rviz_utm" args="-d $(find robot_localization)/config/ekf_utm.rviz"/>
 
 </launch>
