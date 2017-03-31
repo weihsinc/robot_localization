@@ -18,13 +18,19 @@ roslaunch robot_localization ekf_sensors.launch
 ~~~~
    * This launches the drivers for sensors that are fused by the filter. (Wheel encoder, IMU and GPS)
 
-Launch EKF nodes:
+Launch dual EKF:
 ~~~~
 roslaunch robot_localization dual_ekf.launch
 ~~~~
    * This launches two EKF nodes and tf publishers.
-   * /ekf_odom: EKF node for local pose estimation.
-   * /ekf_map: EKF node for global pose estimation.
+   * *ekf_odom*: EKF node for local pose estimation.
+   * *ekf_map*: EKF node for global pose estimation.
+
+Launch local EKF:
+~~~~
+roslaunch robot_localization ekf_odom.launch
+~~~~
+   * This launches local EKF localization node, *ekf_odom*.
 
 ## **Visualization** ##
 ~~~~
