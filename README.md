@@ -54,7 +54,7 @@ The **ekf_odom** node subscribes to
 
 The **ekf_map** node subscribes to
 
-   * */imu/data (sensor_msgs/Imu)*: Roll/Pitch and Roll/Pitch/Yaw rates measurements from Xsens IMU.
+   * */imu/data (sensor_msgs/Imu)*: Roll/Pitch (NOTE: Not using IMU's yaw measurement in global EKF node) and Roll/Pitch/Yaw rates measurements from Xsens IMU.
    * */vehicle_state/velocity (nav_msgs/Odometry)*: Vehicle forward velocity measurement from wheel encoder.
    * */garmin_gps/odom (nav_msgs/Odometry)*: Absolute position in UTM coordinates from Garmin GPS.
 
