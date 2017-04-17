@@ -1,4 +1,4 @@
-ekf_odom:
+ekf_local:
   frequency: 100
   sensor_timeout: 0.1
   two_d_mode: false
@@ -67,7 +67,7 @@ initial_estimate_covariance: [1e-9, 0,    0,    0,    0,    0,    0,    0,    0,
                               0,    0,    0,    0,    0,    0,    0,    0,    0,    0,     0,     0,     0,    1e-9, 0,
                               0,    0,    0,    0,    0,    0,    0,    0,    0,    0,     0,     0,     0,    0,    1e-9]
 
-ekf_map:
+ekf_global:
   frequency: 100
   sensor_timeout: 0.1
   two_d_mode: false
