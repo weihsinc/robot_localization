@@ -1,23 +1,21 @@
 <launch>
-
-  <!-- <rosparam command="load" file="$(find robot_localization)/params/static_transform.yaml" /> -->
   
   <!-- frame_id (base_link)-->
   <arg name="base_frame_id" default="base_link"/>
   <!-- child_frame_id (sensor_link)-->
   <arg name="odometer_frame_id" default="odometer"/>
-  <arg name="imu_frame_id" default="imu"/>
-  <arg name="gps_frame_id" default="garmin_gps"/>
-  <arg name="lidar_frame_id" default="velodyne64"/>
-  <arg name="camera_frame_id" default="multisense/left_camera_optical_frame"/>
+  <arg name="imu_frame_id"      default="imu"/>
+  <arg name="gps_frame_id"      default="garmin_gps"/>
+  <arg name="lidar_frame_id"    default="velodyne64"/>
+  <arg name="camera_frame_id"   default="mutisense/left_camera_optical_frame"/>
 
   <!-- tf -->
   <!-- "x y z qx qy qz qw" -->
   <arg name="base_link_to_odometer" default="0 0 0 0 0 0 1"/>
-  <arg name="base_link_to_imu" default="-0.137 -0.045 0.097 0 0 0.707106781186548 0.707106781186548"/>
-  <arg name="base_link_to_gps" default="-0.675 -1.54 0.08 0 0 0 1"/>
-  <arg name="base_link_to_lidar" default="-0.017 -0.027 0.037 0, 0 0.707106781186548 0.707106781186548"/>
-  <arg name="base_link_to_camera" default="-0.140 0.282 -0.010 -0.782608156852414 0 0 0.622514636637620"/>
+  <arg name="base_link_to_imu"      default="-0.137 -0.045 0.097 0 0 0.707106781186548 0.707106781186548"/>
+  <arg name="base_link_to_gps"      default="-0.675 -1.54 0.08 0 0 0 1"/>
+  <arg name="base_link_to_lidar"    default="-0.017 -0.027 0.037 0, 0 0.707106781186548 0.707106781186548"/>
+  <arg name="base_link_to_camera"   default="-0.140 0.282 -0.010 -0.782608156852414 0 0 0.622514636637620"/>
 
   <!-- rviz -->
   <arg name="rviz" default="false"/>
