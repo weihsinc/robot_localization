@@ -27,12 +27,19 @@ roslaunch robot_localization dual_ekf.launch rviz_odom:=<true/false(default)> rv
    * *ekf_map*: EKF node for global pose estimation.
    * args: rviz_odom (ekf_odom.rviz); rviz_utm (ekf_utm.rviz).
 
+Launch Global EKF:
+~~~~
+roslaunch robot_localization ekf_global.launch rviz:=<true/false(default)>
+~~~~
+   * This launches global EKF localization node, *ekf_global*.
+   * args: rviz (ekf_odom.rviz).
+
 Launch local EKF:
 ~~~~
-roslaunch robot_localization ekf_odom.launch rviz:=<true/false(default)>
+roslaunch robot_localization ekf_local.launch rviz:=<true/false(default)>
 ~~~~
-   * This launches local EKF localization node, *ekf_odom*.
-   * args: rviz (ekf_odom.rviz).
+   * This launches local EKF localization node, *ekf_local*.
+   * args: rviz (ekf_utm.rviz).
 
 Visualization during operation:
 ~~~~
