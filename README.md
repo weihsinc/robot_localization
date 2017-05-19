@@ -23,23 +23,23 @@ Launch dual EKF:
 roslaunch robot_localization dual_ekf.launch rviz_odom:=<true/false(default)> rviz_utm:=<true/false(default)>
 ~~~~
    * This launches two EKF nodes and tf publishers.
-   * *ekf_odom*: EKF node for local pose estimation.
-   * *ekf_map*: EKF node for global pose estimation.
+   * *ekf_local*: EKF node for local pose estimation.
+   * *ekf_global*: EKF node for global pose estimation.
    * args: rviz_odom (ekf_odom.rviz); rviz_utm (ekf_utm.rviz).
 
-Launch Global EKF:
+Launch global EKF:
 ~~~~
 roslaunch robot_localization ekf_global.launch rviz:=<true/false(default)>
 ~~~~
    * This launches global EKF localization node, *ekf_global*.
-   * args: rviz (ekf_odom.rviz).
+   * args: rviz (ekf_utm.rviz).
 
 Launch local EKF:
 ~~~~
 roslaunch robot_localization ekf_local.launch rviz:=<true/false(default)>
 ~~~~
    * This launches local EKF localization node, *ekf_local*.
-   * args: rviz (ekf_utm.rviz).
+   * args: rviz (ekf_odom.rviz).
 
 Visualization during operation:
 ~~~~
