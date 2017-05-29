@@ -1,12 +1,12 @@
-<!-- -*- mode: XML -*- -->
 <launch>
 
+<!-- Arguments -->
+<arg name="save_dir" default="$(find robot_localization)/launch"/>
+<arg name="prefix" default="ekf_log"/>
+
 <!-- Data logger -->
-<node pkg="rosbag"
-      type="record"
-      name="logger"
-      output="screen"	
-      args="-o /home/yamaha/Data/20161214/ekf_novatel --split --size=2000
+<node pkg="rosbag" type="record" name="logger" output="screen"	
+      args="-o $(arg save_dir)/$(arg prefix) --split --size=2000
             /odom
             /odometry/filtered_odom
             /span/pose
