@@ -100,7 +100,9 @@ add_executable(ekf_localization_node src/ekf_localization_node.cpp)
 add_executable(ukf_localization_node src/ukf_localization_node.cpp)
 add_executable(navsat_transform_node src/navsat_transform_node.cpp)
 add_executable(tf_broadcaster src/tf_broadcaster.cpp) # add-in
+add_executable(gt_tf_broadcaster src/gt_tf_broadcaster.cpp) # add-in
 add_executable(setInitialPose_node src/setInitialPose_node.cpp) # add-in
+add_executable(odometry_to_pose_node src/odometry_to_pose_node.cpp) # add-in
 
 # Linking
 target_link_libraries(ros_filter_utilities ${catkin_LIBRARIES} ${EIGEN3_LIBRARIES})
@@ -114,7 +116,9 @@ target_link_libraries(ukf_localization_node ros_filter ${catkin_LIBRARIES})
 target_link_libraries(navsat_transform filter_utilities ros_filter_utilities ${catkin_LIBRARIES} ${EIGEN3_LIBRARIES})
 target_link_libraries(navsat_transform_node navsat_transform ${catkin_LIBRARIES})
 target_link_libraries(tf_broadcaster ${catkin_LIBRARIES}) # add-in
+target_link_libraries(gt_tf_broadcaster ${catkin_LIBRARIES}) # add-in
 target_link_libraries(setInitialPose_node ${catkin_LIBRARIES}) # add-in
+target_link_libraries(odometry_to_pose_node ${catkin_LIBRARIES}) # add-in
 
 #############
 ## Install ##

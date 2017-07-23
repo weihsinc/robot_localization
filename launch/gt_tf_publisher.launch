@@ -1,0 +1,10 @@
+<launch>
+
+  <node pkg="robot_localization" type="gt_tf_broadcaster" name="gt_tf_broadcaster">
+  	<!-- remap subscribed topic name -->
+	<remap from="odom" to="span/pose"/>
+	<!-- frame id -->
+	<param name="init_frame_id" value="odom"/>
+  </node>
+
+</launch>

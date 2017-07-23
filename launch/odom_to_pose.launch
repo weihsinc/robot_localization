@@ -1,0 +1,13 @@
+<launch>
+
+<arg name="odom_topic" default="odom"/>
+<arg name="pose_topic" default="pose"/>
+
+<node pkg="robot_localization" type="odometry_to_pose_node" name="odom_to_pose">
+	<!-- remap subscribed topic -->
+	<remap from="odom" to="$(arg odom_topic)"/>
+	<!-- remap published topic -->
+	<remap from="pose" to="$(arg pose_topic)"/>
+</node>
+
+</launch>
