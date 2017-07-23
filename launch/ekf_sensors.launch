@@ -1,6 +1,5 @@
-<!-- -*- mode: XML -*- -->
 <launch>
-  <!-- Launch the sensors used by the EKF-->
+  <!-- Launch the sensor drivers used by EKF-->
 
   <!-- CAN Gateway -->
   <include file="$(find can_gateway)/launch/can_gateway.launch"/>

@@ -1,42 +1,56 @@
 <launch>
   
+  <!-- x-forward (XYZ-FLU) base frame -->
+  <arg name="x_forward_base"    default="false"/>
   <!-- frame_id (base_link)-->
-  <arg name="base_frame_id" default="base_link"/>
+  <arg name="base_frame_id"     default="base_link"/>
   <!-- child_frame_id (sensor_link)-->
   <arg name="odometer_frame_id" default="odometer"/>
   <arg name="imu_frame_id"      default="imu"/>
   <arg name="gps_frame_id"      default="garmin_gps"/>
   <arg name="lidar_frame_id"    default="velodyne64"/>
-  <arg name="camera_frame_id"   default="mutisense/left_camera_optical_frame"/>
+  <arg name="camera_frame_id"   default="multisense/left_camera_optical_frame"/>
 
-  <!-- tf -->
-  <!-- "x y z qx qy qz qw" -->
-  <arg name="base_link_to_odometer" default="0 0 0 0 0 0 1"/>
-  <arg name="base_link_to_imu"      default="-0.137 -0.045 0.097 0 0 0.707106781186548 0.707106781186548"/>
-  <arg name="base_link_to_gps"      default="-0.675 -1.54 0.08 0 0 0 1"/>
-  <arg name="base_link_to_lidar"    default="-0.017 -0.027 0.037 0, 0 0.707106781186548 0.707106781186548"/>
-  <arg name="base_link_to_camera"   default="-0.140 0.282 -0.010 -0.782608156852414 0 0 0.622514636637620"/>
+  <!-- Static transforms from base frame to sensor frames -->
+  <!-- %%%%%%%%%%%%% X-forward, Y-Left, Z-Up %%%%%%%%%%%%% -->
+  <arg name="base_link_to_odometer" value="0 0 0 0 0 -0.707106781186547 0.707106781186548" if="$(arg x_forward_base)"/>
+  <arg name="base_link_to_imu"      value="-0.045 0.137 0.097 0 0 0 1" if="$(arg x_forward_base)"/>
+  <arg name="base_link_to_gps"      value="-1.54 0.675 0.08 0 0 0 1" if="$(arg x_forward_base)"/>
+  <arg name="base_link_to_lidar"    value="-0.027 0.017 0.037 0 0 0 1" if="$(arg x_forward_base)"/>
+  <arg name="base_link_to_camera"   value="0.282 0.140 -0.010 -0.553387534722247 0.553387534722247 -0.440184320954340 0.440184320954340" if="$(arg x_forward_base)"/>
+
+  <!-- %%%%%%%%%%%%% X-Right, Y-Forward, Z-Up %%%%%%%%%%%%% -->
+  <arg name="base_link_to_odometer" value="0 0 0 0 0 0 1" unless="$(arg x_forward_base)"/>
+  <arg name="base_link_to_imu"      value="-0.137 -0.045 0.097 0 0 0.707106781186548 0.707106781186548" unless="$(arg x_forward_base)"/>
+  <arg name="base_link_to_gps"      value="-0.675 -1.54 0.08 0 0 0 1" unless="$(arg x_forward_base)"/>
+  <arg name="base_link_to_lidar"    value="-0.017 -0.027 0.037 0 0 0.707106781186548 0.707106781186548" unless="$(arg x_forward_base)"/>
+  <arg name="base_link_to_camera"   value="-0.140 0.282 -0.010 -0.782608156852414 0 0 0.622514636637620" unless="$(arg x_forward_base)"/>
+    
+  <!-- Static_transform_publishers -->
+  <!-- Odometer (wheel encoder; vehicle velocity) -->
+  <node pkg="tf2_ros" type="static_transform_publisher" name="base_link_to_odometer_br" 
+        args="$(arg base_link_to_odometer) $(arg base_frame_id) $(arg odometer_frame_id)"/>
+
+  <!-- Xsens IMU -->
+  <node pkg="tf2_ros" type="static_transform_publisher" name="base_link_to_imu_br" 
+        args="$(arg base_link_to_imu) $(arg base_frame_id) $(arg imu_frame_id)"/>
+
+  <!-- Garmin GPS -->
+  <node pkg="tf2_ros" type="static_transform_publisher" name="base_link_to_gps_br" 
+        args="$(arg base_link_to_gps) $(arg base_frame_id) $(arg gps_frame_id)"/>
+
+  <!-- Velodyne 64 -->
+  <node pkg="tf2_ros" type="static_transform_publisher" name="base_link_to_lidar_br"
+        args="$(arg base_link_to_lidar) $(arg base_frame_id) $(arg lidar_frame_id)"/>
+
+  <!-- Multisense Left Camera -->
+  <node pkg="tf2_ros" type="static_transform_publisher" name="base_link_to_cam_br"
+        args="$(arg base_link_to_camera) $(arg base_frame_id) $(arg camera_frame_id)"/>
 
   <!-- rviz -->
   <arg name="rviz" default="false"/>
-
-  <!-- static_transform_publishers -->
-  <!-- Odometer (wheel encoder; vehicle velocity) -->
-  <node pkg="tf2_ros" type="static_transform_publisher" name="base_link_to_odometer_br" args="$(arg base_link_to_odometer) $(arg base_frame_id) $(arg odometer_frame_id)"/>
-
-  <!-- Xsens IMU -->
-  <node pkg="tf2_ros" type="static_transform_publisher" name="base_link_to_imu_br" args="$(arg base_link_to_imu) $(arg base_frame_id) $(arg imu_frame_id)"/>
-
-  <!-- Garmin GPS -->
-  <node pkg="tf2_ros" type="static_transform_publisher" name="base_link_to_gps_br" args="$(arg base_link_to_gps) $(arg base_frame_id) $(arg gps_frame_id)"/>
-
-  <!-- Velodyne 64 -->
-  <node pkg="tf2_ros" type="static_transform_publisher" name="base_link_to_lidar_br" args="$(arg base_link_to_lidar) $(arg base_frame_id) $(arg lidar_frame_id)"/>
-
-  <!-- Multisense Left Camera -->
-  <node pkg="tf2_ros" type="static_transform_publisher" name="base_link_to_cam_br" args="$(arg base_link_to_camera) $(arg base_frame_id) $(arg camera_frame_id)"/>
-
   <!-- View in rviz -->
-  <node if="$(arg rviz)" pkg="rviz" type="rviz" name="rviz" args="-d $(find robot_localization)/config/static_tf_viewer.rviz"/>
+  <node if="$(arg rviz)" pkg="rviz" type="rviz" name="rviz"
+        args="-d $(find robot_localization)/config/static_tf_viewer.rviz"/>
 
 </launch>
