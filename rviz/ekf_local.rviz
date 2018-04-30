@@ -5,7 +5,7 @@ Panels:
     Property Tree Widget:
       Expanded:
         - /Global Options1
-        - /Odometry1
+        - /Grid1
       Splitter Ratio: 0.533666
     Tree Height: 759
   - Class: rviz/Selection
@@ -31,7 +31,7 @@ Visualization Manager:
   Class: ""
   Displays:
     - Alpha: 0.5
-      Cell Size: 10
+      Cell Size: 50
       Class: rviz/Grid
       Color: 160; 160; 164
       Enabled: true
@@ -50,16 +50,12 @@ Visualization Manager:
       Value: true
     - Class: rviz/TF
       Enabled: true
-      Frame Timeout: 15
+      Frame Timeout: 10
       Frames:
         All Enabled: false
-        UTM:
-          Value: false
         base_link:
           Value: true
         garmin_gps:
-          Value: false
-        gps_init_ENU:
           Value: false
         imu:
           Value: false
@@ -71,27 +67,24 @@ Visualization Manager:
           Value: false
         velodyne64:
           Value: false
-      Marker Scale: 50
+      Marker Scale: 10
       Name: TF
       Show Arrows: false
       Show Axes: true
       Show Names: true
       Tree:
-        UTM:
-          gps_init_ENU:
-            {}
-          odom:
-            base_link:
-              garmin_gps:
-                {}
-              imu:
-                {}
-              multisense/left_camera_optical_frame:
-                {}
-              odometer:
-                {}
-              velodyne64:
-                {}
+        odom:
+          base_link:
+            garmin_gps:
+              {}
+            imu:
+              {}
+            multisense/left_camera_optical_frame:
+              {}
+            odometer:
+              {}
+            velodyne64:
+              {}
       Update Interval: 0
       Value: true
     - Angle Tolerance: 0.1
@@ -99,10 +92,18 @@ Visualization Manager:
       Color: 255; 85; 0
       Enabled: true
       Keep: 0
-      Length: 5
+      Length: 2
       Name: Odometry
       Position Tolerance: 0.1
       Topic: /odometry/filtered_odom
+      Value: true
+    - Class: rviz/Marker
+      Enabled: true
+      Marker Topic: /viking_model
+      Name: Marker
+      Namespaces:
+        viking_model: true
+      Queue Size: 100
       Value: true
   Enabled: true
   Global Options:
@@ -189,5 +190,5 @@ Window Geometry:
   Views:
     collapsed: false
   Width: 1873
-  X: 47
+  X: 1967
   Y: 24

@@ -4,7 +4,10 @@
   	<!-- remap subscribed topic name -->
 	<remap from="odom" to="span/pose"/>
 	<!-- frame id -->
-	<param name="init_frame_id" value="odom"/>
+	<param name="world_frame_id" value="UTM"/>
+	<param name="gpsInit_frame_id" value="gt_gps_init"/>	
+	<param name="init_frame_id" value="gt_odom"/>
+	<param name="base_frame_id" value="gt"/>
   </node>
 
 </launch>

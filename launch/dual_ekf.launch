@@ -1,8 +1,8 @@
 <launch>
 
   <!-- Choose RVIZ -->
-  <arg name="rviz_local"  default="false"/>
-  <arg name="rviz_global" default="false"/>
+  <arg name="rviz_local"  default="true"/>
+  <arg name="rviz_global" default="true"/>
 
   <!-- Publish static transforms (base link to sensor links)-->
   <include file="$(find robot_localization)/launch/static_tf_publisher.launch"/>
@@ -22,7 +22,7 @@
   <!-- Launch Global EKF node (Map frame) -->
   <node pkg="robot_localization" type="ekf_localization_node" name="ekf_global"
         clear_params="true" output="screen">
-    <remap from="odometry/filtered" to="odom"/>
+    <remap from="odometry/filtered" to="odometry/filtered_map"/>
   </node>
 
   <!-- RVIZ-->

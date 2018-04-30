@@ -1,8 +1,8 @@
 # **robot_localization** #
 
-robot_localization is a package of nonlinear state estimation nodes. The package was developed by Charles River Analytics, Inc.
+robot_localization is a ROS package of nonlinear state estimation nodes. 
 
-For detailed information please see documentation here: http://wiki.ros.org/robot_localization
+For detailed information please see documentation: http://wiki.ros.org/robot_localization
 
 
 ## **Installation** ##
@@ -16,7 +16,7 @@ Launch sensor drivers:
 ~~~~
 roslaunch robot_localization ekf_sensors.launch
 ~~~~
-   * This launches the drivers for sensors that are fused by the filter. (Wheel encoder, IMU and GPS)
+   * This launches the drivers for sensors that are fused by the filter. (tachometer, IMU and GPS)
 
 Launch dual EKF:
 ~~~~
