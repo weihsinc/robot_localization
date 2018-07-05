@@ -2,4 +2,6 @@ doc/html
 *.cproject
 *.project
 *.settings
+*.rviz
+*.swp
 *~
