@@ -7,12 +7,12 @@
 
        The first EKF instance produces the odom->base_link transform. The second EKF produces the map->odom transform,
        but requires the odom->base_link transform from the first instance in order to do so. See the
-       params/dual_ekf_navsat_example.yaml file for parameter specification.
+       params/examples/dual_ekf_navsat_example.yaml file for parameter specification.
 -->
 
 <launch>
 
-  <rosparam command="load" file="$(find robot_localization)/params/dual_ekf_navsat_example.yaml" />
+  <rosparam command="load" file="$(find robot_localization)/params/examples/dual_ekf_navsat_example.yaml" />
 
   <node pkg="robot_localization" type="ekf_localization_node" name="ekf_se_odom" clear_params="true"/>
 
