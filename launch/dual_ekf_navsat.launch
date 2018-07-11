@@ -33,8 +33,8 @@
 
   <!-- RVIZ-->
   <node if="$(arg rviz_local)" pkg="rviz" type="rviz" name="rviz_local"
-        args="-d $(find robot_localization)/rviz/ekf_local.rviz"/>
+        args="-d $(find robot_localization)/viz/local.rviz"/>
   <node if="$(arg rviz_global)" pkg="rviz" type="rviz" name="rviz_global"
-        args="-d $(find robot_localization)/rviz/ekf_global.rviz"/>
+        args="-d $(find robot_localization)/viz/global.rviz"/>
 
 </launch>

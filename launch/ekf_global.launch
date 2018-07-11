@@ -25,7 +25,7 @@
   
   <!-- RVIZ-->
   <node if="$(arg rviz)" pkg="rviz" type="rviz" name="rviz"
-        args="-d $(find robot_localization)/rviz/ekf_global.rviz"/>
+        args="-d $(find robot_localization)/viz/global.rviz"/>
 
   <!-- Visualize vehicle model -->
   <include if="$(arg viz_veh)" file="$(find erikviz)/launch/vehicle_model_publisher.launch">

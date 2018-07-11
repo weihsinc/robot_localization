@@ -51,7 +51,7 @@
   <arg name="rviz" default="false"/>
   <!-- View in rviz -->
   <node if="$(arg rviz)" pkg="rviz" type="rviz" name="rviz"
-        args="-d $(find robot_localization)/rviz/static_tf_viewer.rviz"/>
+        args="-d $(find robot_localization)/viz/static_tf_viewer.rviz"/>
 
   <!-- Visualize vehicle model -->
   <arg name="viz_vehicle" default="false"/>

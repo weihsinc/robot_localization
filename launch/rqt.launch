@@ -1,6 +1,6 @@
 <launch>
 
 <!-- Launch rqt_plot with perspective file -->
-<node pkg="rqt_gui" type="rqt_gui" name="ekf_debug" args="--perspective-file $(find robot_localization)/rviz/ekf_debug.perspective"/>
+<node pkg="rqt_gui" type="rqt_gui" name="ekf_debug" args="--perspective-file $(find robot_localization)/viz/ekf_debug.perspective"/>
 
 </launch>
