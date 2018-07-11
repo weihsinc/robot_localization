@@ -1,0 +1,35 @@
+<launch>
+  
+  <arg name="rviz" default="true"/>
+  <arg name="viz_veh"   default="true"/>
+  <arg name="x_forward" default="false"/>
+  
+  <!-- Launch static tf publisher (base link to sensor links)-->
+  <include file="$(find robot_localization)/launch/static_tf_publisher.launch">
+    <arg name="x_forward_base" default="$(arg x_forward)"/>
+  </include>
+
+  <!-- Launch ground-truth tf publisher -->
+  <include file="$(find robot_localization)/launch/gt_tf_publisher.launch"/>
+
+  <!-- launch initial GPS tf publisher (for local map frame setup) -->
+  <include file="$(find robot_localization)/launch/tf_publisher.launch"/>
+
+  <!-- Launch Global EKF node (Map frame) -->
+  <node pkg="robot_localization" type="ukf_localization_node" name="ukf_global"
+        clear_params="true" output="screen">
+    <rosparam command="load" file="$(find robot_localization)/params/ukf_global.yaml"/>
+    <!--  Output topic remapping -->
+    <remap from="odometry/filtered" to="odometry/filtered_map"/> 
+  </node>
+  
+  <!-- RVIZ-->
+  <node if="$(arg rviz)" pkg="rviz" type="rviz" name="rviz"
+        args="-d $(find robot_localization)/viz/global.rviz"/>
+
+  <!-- Visualize vehicle model -->
+  <include if="$(arg viz_veh)" file="$(find erikviz)/launch/vehicle_model_publisher.launch">
+    <arg name="x_forward_base" default="$(arg x_forward)"/>
+  </include>
+
+</launch>
