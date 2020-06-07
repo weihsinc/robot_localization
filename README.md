@@ -52,7 +52,7 @@ roslaunch robot_localization rviz.launch
 ## **Initialization** ##
 **WARNING: At launching, the global pose estimation is undetermined until the vehicle starts driving for some distance. For details about sensor fusion layout, please refer to the Google slide: [Local and Global Pose Estimation for Yamaha Viking](https://drive.google.com/open?id=1ZupPT3fVijkt8HYYW9_nPaK9ds9az5XWv38_J53h8Eo)**
 
-## **Subscriptions** ##
+## **Subscribed topics** ##
 
 The **ekf_odom** node subscribes to
 
@@ -65,7 +65,7 @@ The **ekf_map** node subscribes to
    * */vehicle_state/velocity (nav_msgs/Odometry)*: Vehicle forward velocity measurement from wheel encoder.
    * */garmin_gps/odom (nav_msgs/Odometry)*: Absolute position in UTM coordinates from Garmin GPS.
 
-## **Publications** ##
+## **Published topics** ##
 
 The **ekf_odom** node publishes
 
